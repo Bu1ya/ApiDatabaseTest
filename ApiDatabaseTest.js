@@ -48,7 +48,7 @@ app.post('/create', async (req, res) =>{
 
     const { first_name, last_name, age, cash_amount } = req.body
 
-    if (!first_name || cash_amount != null) {
+    if (!first_name || cash_amount == null) {
         return res.status(400).json({ error: 'first_name and cash_amount fields must be provided' })
     }
 
