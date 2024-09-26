@@ -1,8 +1,9 @@
+require('dotenv').config();
 const sqlite3 = require('sqlite3').verbose();
 
 const initDatabase = () => {
     return new Promise((resolve, reject) => {
-        let db = new sqlite3.Database('AppDB.db', (err) => {
+        let db = new sqlite3.Database(process.env.DB_PATH, (err) => {
             if (err) {
                 console.error(`Error connecting to the database: ${err.message}`);
                 return reject(err);
